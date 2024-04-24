@@ -7,7 +7,7 @@
     "build": "webpack --mode production"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.24.4",
     "@babel/preset-env": "^7.24.4",
@@ -34,9 +34,11 @@
     "@monaco-editor/react": "^4.6.0",
     "@shoelace-style/shoelace": "^2.15.0",
     "@wavebeem/candy-css": "^0.3.0",
+    "human-id": "^4.1.1",
     "monaco-editor": "^0.47.0",
     "monaco-themes": "^0.4.4",
     "monaco-vim": "^0.4.1",
+    "uuid": "^9.0.1",
     "y-indexeddb": "^9.0.12",
     "y-monaco": "^0.1.5",
     "y-webrtc": "^10.3.0",

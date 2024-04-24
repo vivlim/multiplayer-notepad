@@ -4,8 +4,10 @@ import { WebrtcProvider } from "y-webrtc";
 import { MonacoBinding } from "y-monaco";
 import * as monaco from "monaco-editor";
 import "./awareness.css";
+import "./editor.css";
 import { parseTmTheme } from "monaco-themes";
 import { initVimMode, VimMode } from "monaco-vim";
+import { IndexeddbPersistence } from "y-indexeddb";
 
 function getDocName() {
   if (window.location.search !== "") {
@@ -22,13 +24,26 @@ VimMode.Vim.map("jk", "<Esc>", "insert");
 export class MonacoRoom {
   private ydoc: Y.Doc;
   private provider: WebrtcProvider;
+  private localProvider: IndexeddbPersistence;
   private ytext: Y.Text;
   private monacoBinding: MonacoBinding;
   private editorTarget: HTMLElement;
   private editor;
 
-  public constructor(public roomName: string, targetElementId: string) {
+  public constructor(public roomName: string, targetElementId: string, public appState: AppState) {
+
+    var vimMode = false;
+    if (appState.readSetting("vim-mode") === "true") {
+      vimMode = true;
+    }
+
     this.ydoc = new Y.Doc();
+    this.localProvider = new IndexeddbPersistence(roomName, this.ydoc);
+
+    this.localProvider.on('synced', () => {
+      console.log('content from the database is loaded')
+    })
+
     this.provider = new WebrtcProvider(roomName, this.ydoc, {
       password: "C9D52D98-6741-4DC8-8FF9-D91249E6F589", // hardcoded pwd for all clients, atm
       signaling: ["wss://vvn-y-webrtc.fly.dev"],
@@ -60,6 +75,10 @@ export class MonacoRoom {
     );
     console.log("Created binding");
 
-    initVimMode(this.editor, document.getElementById("vim-statusbar"));
+    if (vimMode) {
+      initVimMode(this.editor, document.getElementById("vim-statusbar"));
+    } else {
+      document.getElementById("vim-statusbar")?.remove();
+    }
   }
 }

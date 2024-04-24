@@ -1,12 +1,16 @@
-<div style="display: flex; flex-direction: column; align-items: stretch; height:100vh; background-color: var(--sl-color-neutral-200)" class="sl-theme-dark">
-    <div style="display: flex; flex-direction: row; justify-content: center;" class="sl-theme-dark">
-        <div>nothing here</div>
-        <sl-button>hello</sl-button>
-        <sl-button>hello</sl-button>
-        <sl-button>hello</sl-button>
-        <sl-button>hello</sl-button>
+<div style="display: flex; flex-direction: column; align-items: stretch; height:100vh; background-color: var(--sl-color-neutral-200)">
+    <div style="display: flex; flex-direction: row; justify-content: center; padding: 0.5em">
+        <div>multiplayer notepad</div>
     </div>
-    <div style="flex-grow:2">
-        <div style="height: 100%; width: 100%;" id="monaco"/>
+    <div style="display: flex; flex-direction: row; justify-content: center; padding: 0.5em;">
+        <button class="candy-button candy-primary" id="newDocButton">new</button>
+
+        <label class="candy-choice">
+            <input class="candy-checkbox" type="checkbox" id="vim-mode" name="vim-mode" value="vim-mode">
+            <div for="vim-mode">Vim mode</div>
+        </label>
+    </div>
+    <div style="flex-grow:2; overflow-y: auto;">
+        <div style="height: 100%; width: 100%;" id="recentList" />
     </div>
 </div>

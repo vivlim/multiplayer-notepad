@@ -1,0 +1,33 @@
+
+#recentList {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+}
+
+#newDocButton {
+    flex-grow: 1;
+}
+
+.doc-title-button {
+
+}
+
+.recentCard {
+    margin: 1em;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.doc-preview {
+    margin: 0.5em;
+    flex-grow: 1;
+    overflow: hidden;
+    font-size: small;
+}

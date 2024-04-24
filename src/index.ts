@@ -7,15 +7,19 @@ import "@wavebeem/candy-css";
 // import "@shoelace-style/shoelace/dist/components/icon/icon.js";
 // import "@shoelace-style/shoelace/dist/components/card/card.js";
 // import { setBasePath } from "@shoelace-style/shoelace/dist/utilities/base-path.js";
-import docIndex from "./docIndex.html";
+import "./index.css";
 import editor from "./editor.html";
 import { MonacoRoom } from "./editor";
+import { AppState, IRecentDocument } from "./appState";
+import { RecentView, displayRecents } from "./recentView";
 
 // setBasePath("/dist/shoelace");
 
-document.addEventListener("DOMContentLoaded", () => {
+const appState = new AppState();
+
+document.addEventListener("DOMContentLoaded", async () => {
     const urlParams = new URLSearchParams(window.location.search);
-    const docId = urlParams.get("i");
+    const docId = urlParams.get("edit");
 
     if (docId !== null) {
         // Go to the editor view.
@@ -23,15 +27,18 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("room").innerHTML = docId;
 
         try {
-        const mr = new MonacoRoom(docId, "monaco")
+            const mr = new MonacoRoom(docId, "monaco", appState)
+            appState.storeRecent(docId);
         }
         catch (e) {
             console.error("Failed to create room: ", e)
         }
     }
     else {
-        document.getElementById("app").innerHTML = docIndex;
+        const rec = new RecentView(appState);
 
+        //const items = appState.listRecents();
+        //displayRecents(items);
     }
 
 
