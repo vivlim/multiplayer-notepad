@@ -51,17 +51,5 @@ module.exports = {
     new MonacoWebpackPlugin({
       publicPath: "./dist/",
     }),
-    new CopyPlugin({
-      patterns: [
-        // Copy Shoelace assets to dist/shoelace
-        {
-          from: path.resolve(
-            __dirname,
-            "node_modules/@shoelace-style/shoelace/dist/assets"
-          ),
-          to: path.resolve(__dirname, "dist/shoelace/assets"),
-        },
-      ],
-    }),
   ],
 };

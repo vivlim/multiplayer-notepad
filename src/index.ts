@@ -1,19 +1,9 @@
 import "@wavebeem/candy-css";
-// import "@shoelace-style/shoelace/dist/themes/dark.css";
-// import "@shoelace-style/shoelace/dist/components/button/button.js";
-// import "@shoelace-style/shoelace/dist/components/button-group/button-group.js";
-// import "@shoelace-style/shoelace/dist/components/split-panel/split-panel.js";
-// import "@shoelace-style/shoelace/dist/components/popup/popup.js";
-// import "@shoelace-style/shoelace/dist/components/icon/icon.js";
-// import "@shoelace-style/shoelace/dist/components/card/card.js";
-// import { setBasePath } from "@shoelace-style/shoelace/dist/utilities/base-path.js";
 import "./index.css";
 import editor from "./editor.html";
 import { MonacoRoom } from "./editor";
 import { AppState, IRecentDocument } from "./appState";
 import { RecentView, displayRecents } from "./recentView";
-
-// setBasePath("/dist/shoelace");
 
 const appState = new AppState();
 
@@ -36,9 +26,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     else {
         const rec = new RecentView(appState);
-
-        //const items = appState.listRecents();
-        //displayRecents(items);
     }
 
 
