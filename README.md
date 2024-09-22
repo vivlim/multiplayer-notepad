@@ -2,6 +2,14 @@
 
 Peer-to-peer multiplayer text editor, in your browser.
 
+Documents are saved in your browser's local storage, and replicated to the local storage of any browser that joins the same document *while you have it open*.
+
+Note that this is a weekend hack, so it's quite rough around the edges. In particular:
+- I didn't set up TURN, so the peer to peer connection may not work for clients that are behind NAT.
+- `Vim mode` does *not* sync correctly and you shouldn't use it :(
+
+`main` is running at [notepad.vivl.im](https://notepad.vivl.im), hosted by github pages.
+
 Combines the following parts:
 
 - [VS Code's Monaco editor](https://github.com/microsoft/monaco-editor) for editing
