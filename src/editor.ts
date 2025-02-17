@@ -47,6 +47,38 @@ export class MonacoRoom {
     this.provider = new WebrtcProvider(roomName, this.ydoc, {
       password: "C9D52D98-6741-4DC8-8FF9-D91249E6F589", // hardcoded pwd for all clients, atm
       signaling: ["wss://vvn-y-webrtc.fly.dev"],
+      peerOpts: {
+        config: {
+          iceServers: [
+            /*
+             * This is a free account at metered.ca, please create your own account if you're running this yourself :)
+             * https://www.metered.ca/tools/openrelay/
+             */
+            {
+              urls: "stun:stun.relay.metered.ca:80",
+            },
+            {
+              urls: "turn:global.relay.metered.ca:80",
+              username: "f15491c1ae5272b07b3ef60f",
+              credential: "cWLkmhU3PePOmfPp",
+            },
+            {
+              urls: "turn:global.relay.metered.ca:80?transport=tcp",
+              username: "f15491c1ae5272b07b3ef60f",
+              credential: "cWLkmhU3PePOmfPp",
+            },
+            {
+              urls: "turn:global.relay.metered.ca:443",
+              username: "f15491c1ae5272b07b3ef60f",
+              credential: "cWLkmhU3PePOmfPp",
+            },
+            {
+              urls: "turns:global.relay.metered.ca:443?transport=tcp",
+              username: "f15491c1ae5272b07b3ef60f",
+              credential: "cWLkmhU3PePOmfPp",
+            },
+          ]},
+      },
     });
     this.ytext = this.ydoc.getText("monaco");
 
