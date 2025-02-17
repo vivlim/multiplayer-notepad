@@ -88,6 +88,7 @@ export class MonacoRoom {
     if (editorModel === null) {
       throw new Error("Couldn't get monaco model");
     }
+    editorModel.setEOL(monaco.editor.EndOfLineSequence.LF);
 
     this.monacoBinding = new MonacoBinding(
       this.ytext,
