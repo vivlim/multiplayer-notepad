@@ -1,7 +1,7 @@
 
 import * as Y from "yjs";
 import { WebrtcProvider } from "y-webrtc";
-import { MonacoBinding } from "y-monaco";
+import { MonacoBinding } from "./y-monaco";
 import * as monaco from "monaco-editor";
 import "./awareness.css";
 import "./editor.css";
