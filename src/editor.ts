@@ -58,16 +58,6 @@ export class MonacoRoom {
               urls: "stun:stun.relay.metered.ca:80",
             },
             {
-              urls: "turn:global.relay.metered.ca:80",
-              username: "f15491c1ae5272b07b3ef60f",
-              credential: "cWLkmhU3PePOmfPp",
-            },
-            {
-              urls: "turn:global.relay.metered.ca:80?transport=tcp",
-              username: "f15491c1ae5272b07b3ef60f",
-              credential: "cWLkmhU3PePOmfPp",
-            },
-            {
               urls: "turn:global.relay.metered.ca:443",
               username: "f15491c1ae5272b07b3ef60f",
               credential: "cWLkmhU3PePOmfPp",
